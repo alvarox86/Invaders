@@ -1,12 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
     <title>Invaders</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div id="splash-screen" class="container">
+      <h1 id="invaders">INVADERS</h1>
+
+      <div id="instructions">
+        <p>Bienvenido a invaders.</p>
+        <p>
+          Controla a tu personaje y esquiva a los enemigos que caen del cielo.
+          ¿Podrás sobrevivir durante 2 minutos?
+        </p>
+        <div id="rules">
+          <h1>Instrucciones del Juego</h1>
+
+          <h3>Controles:</h3>
+          <p>
+            Usa las teclas <strong>← (izquierda)</strong> y
+            <strong>→ (derecha)</strong> para mover al personaje de lado a lado.
+          </p>
+        </div>
+
+        <div id="objetives">
+          <h3>Objetivo:</h3>
+          <p>
+            Sobrevive <strong>2 minutos</strong> esquivando los enemigos que
+            caen desde arriba.
+          </p>
+        </div>
+
+        <div id="rules">
+          <h2>Reglas:</h2>
+          <ul>
+            <li>Si un enemigo te golpea, <strong>pierdes una vida</strong>.</li>
+            <li>Tienes <strong>3 vidas</strong> en total.</li>
+            <li>Si pierdes las 3 vidas, <strong>el juego termina</strong>.</li>
+            <li>
+              Si sobrevives los 2 minutos, <strong>GANAS LA PARTIDA</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <button id="start-btn">Start!</button>
+    </div>
+
+    <!-- PANTALLA DE JUEGO -->
+    <div id="game-screen" class="container">
+      <!-- Elementos del juego como puntuación, vidas, etc deberia ir aqui (dentro del game-screen pero fuera del game-box) -->
+
+      <div id="game-box">
+        <!-- Los elementos del juego serán añadidos desde JS con manipulación de DOM -->
+      </div>
+    </div>
+
+    <!-- PANTALLA FINAL -->
+    <div id="game-over-screen" class="container">
+      <h3>pantalla final</h3>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/nave.js"></script>
+    <script src="js/enemigos.js"></script>
+  </body>
 </html>
