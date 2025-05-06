@@ -10,7 +10,7 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 50px;
+    margin: 30px;
     background-color: rgb(222, 222, 222);
     background-image: url(../images/bg.jpg);
     background-size: cover;
@@ -60,10 +60,10 @@ body{
 #game-box {
     background-color: darkgray;
     width:500px;
-    height:600px;
+    height:700px;
   
     position: relative; /* permite posicionar los elementos de forma absoluta dentro del game-box */
-    overflow: visible; /* previene que los elementos salgan visualmente del game-box */
+    overflow: hidden; /* previene que los elementos salgan visualmente del game-box */
     user-select: none; /* previene que los elementos del game-box sean resaltados al hacer click */
   
     background-image: url("../images/bg-game.jpeg");
@@ -71,6 +71,37 @@ body{
     border-radius: 10px;
   }
 
-#game-over-screen, #game-screen{
+
+#game-screen{
     display: none;
+}
+
+#game-over-screen{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+} 
+
+.restartBtn {
+    margin: 50px;
+    font-size: 20px;
+    width: 100px;
+    height: 80px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+}
+
+#time, #lives {
+    text-align: center;
+    background-color: rgb(186, 221, 221);
+    width: 200px;
+    height: 100px;
+    margin: 50px;
+    border-radius: 5px;
+    h1{
+        margin: 10px;
+        font-size: 40px;
+    }
 }

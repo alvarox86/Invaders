@@ -51,17 +51,29 @@
     </div>
 
     <!-- PANTALLA DE JUEGO -->
-    <div id="game-screen" class="container">
+    <div id="game-screen" class="GameContainer">
       <!-- Elementos del juego como puntuación, vidas, etc deberia ir aqui (dentro del game-screen pero fuera del game-box) -->
 
       <div id="game-box">
         <!-- Los elementos del juego serán añadidos desde JS con manipulación de DOM -->
+      </div>
+
+      <div id="extras-box">
+          <div id="time">
+            <h3>Tiempo</h3>
+            <h1><span id="minutes">00</span>:<span id="seconds">00</span></h1>
+          </div>
+          <div id="lives">
+            <h3>Vidas</h3>
+              <h1>3</h1>
+          </div>
       </div>
     </div>
 
     <!-- PANTALLA FINAL -->
     <div id="game-over-screen" class="container">
       <h3>pantalla final</h3>
+      <button class="restartBtn">Restart Game</button>
     </div>
 
     <script src="js/main.js"></script>

@@ -1,35 +1,36 @@
 class Nave {
+  constructor() {
+    this.node = document.createElement("img");
+    this.node.src = "../images/nave-user.png";
+    gameBoxNode.append(this.node);
 
-    constructor(){
-        this.node = document.createElement("img")
-        this.node.src = "../images/nave-user.png"
-        gameBoxNode.append(this.node)
+    this.x = 220;
+    this.y = 630;
 
-        this.x = 220;
-        this.y = 520;
+    this.w = 80;
+    this.h = 55;
 
-        this.w = 120;
-        this.h = 70;
+    //Dimensiones actuales
+    this.node.style.width = `${this.w}px`;
+    this.node.style.height = `${this.h}px`;
 
-        //Dimensiones actuales
-        this.node.style.width = `${this.w}px`;
-        this.node.style.height = `${this.h}px`;
-        
-        //Posicion inical
-        this.node.style.position = "absolute";
-        this.node.style.top = `${this.y}px`;
-        this.node.style.left = `${this.x}px`;
+    //Posicion inical
+    this.node.style.position = "absolute";
+    this.node.style.top = `${this.y}px`;
+    this.node.style.left = `${this.x}px`;
 
-        this.speed = 20 
+    this.speed = 25;
+  }
+
+  moveNave(event) {
+    if (event.key === "ArrowLeft" && this.x > 0) {
+      this.x -= this.speed;
+      this.node.style.left = `${this.x}px`;
     }
 
-    moveNave(event){
-        if(event.key === "ArrowLeft"){
-            this.x -= this.speed
-            this.node.style.left = `${this.x}px`
-        } else if(event.key === "ArrowRight"){
-            this.x += this.speed
-            this.node.style.left = `${this.x}px`
-        }
+    if (event.key === "ArrowRight" && this.x < (500 - this.w)) {
+      this.x += this.speed;
+      this.node.style.left = `${this.x}px`;
     }
+  }
 }

@@ -5,9 +5,12 @@ const gameOverScreenNode = document.querySelector("#game-over-screen");
 
 //botones
 const startBtnNode = document.querySelector("#start-btn");
-
+const restartBtn = document.querySelector(".restartBtn")
+const livesNode = document.querySelector("#lives h1")
 //game box
 const gameBoxNode = document.querySelector("#game-box");
+const minutesNode = document.querySelector("#minutes")
+const secondsNode = document.querySelector("#seconds")
 
 //Variables globales
 let naveObj = null
@@ -25,6 +28,10 @@ document.addEventListener("keydown", (event)=>{ // Evento para registrar el movi
     naveObj.moveNave(event)
 })
 
+restartBtn.addEventListener("click", () => {
+    location.reload()    
+})
+
 //Funciones
 
 function startGame(){
@@ -35,11 +42,25 @@ function startGame(){
 
     gameIntervalId = setInterval(()=>{
         gameLoop()
+        livesCounter()
     }, Math.round(1000/60))
 
     enemyAppearInterval = setInterval(()=>{
         enemyAppear()
-    }, 500)
+    }, 1000)
+
+    timerInterval = setInterval(()=>{
+        secondsNode.innerHTML ++
+        if(secondsNode.innerHTML < 10){
+            secondsNode.innerHTML = secondsNode.innerHTML.padStart(2, "0")
+            
+        }
+        if(secondsNode.innerHTML >= 60){
+            minutesNode.innerHTML ++
+            minutesNode.innerHTML = minutesNode.innerHTML.padStart(2, "0")
+            secondsNode.innerHTML = "00"
+        }
+    }, 1000)
 }
 
 function gameLoop(){
@@ -47,6 +68,7 @@ function gameLoop(){
         eachEnemy.automaticMovement();
     })
     enemyDestroy()
+    checkCollisionNaveEnemigo()
 }
 
 function enemyAppear(){
@@ -58,8 +80,41 @@ function enemyAppear(){
 }
 
 function enemyDestroy(){
-    if (enemyArr.length > 0 && enemyArr[0].y + enemyArr[0].h >= 660) {
+    if (enemyArr.length > 0 && enemyArr[0].y + enemyArr[0].h >= 760) {
         enemyArr[0].node.remove(); // 1. destuir el nodo
         enemyArr.shift();
     }
+}
+
+function checkCollisionNaveEnemigo(){
+    enemyArr.forEach((eachEnemyObj, index) => {
+        if (
+          naveObj.x < eachEnemyObj.x + eachEnemyObj.w &&
+          naveObj.x + naveObj.w > eachEnemyObj.x &&
+          naveObj.y < eachEnemyObj.y + eachEnemyObj.h &&
+          naveObj.y + naveObj.h > eachEnemyObj.y
+        ) {
+            livesNode.innerHTML --
+            eachEnemyObj.node.remove()
+            enemyArr.splice(index, 1)
+        }
+      });
+}
+
+function gameOver(){
+    clearInterval(gameIntervalId)
+    clearInterval(enemyAppearInterval)
+
+    gameScreenNode.style.display = "none"
+    gameOverScreenNode.style.display ="flex"
+}
+
+function livesCounter(){
+    if (livesNode.innerHTML <= 0){
+        gameOver()
+    }
+}
+
+function timer(){
+
 }

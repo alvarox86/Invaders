@@ -14,7 +14,7 @@ class Enemigo{
         gameBoxNode.append(this.node)
 
         this.x = positionX;
-        this.y = -50;
+        this.y = -60;
 
         this.w = 50;
         this.h = 50;
@@ -28,7 +28,7 @@ class Enemigo{
         this.node.style.top = `${this.y}px`;
         this.node.style.left = `${this.x}px`;
 
-        this.speed = 2 
+        this.speed = 2
     }
 
     automaticMovement(){
