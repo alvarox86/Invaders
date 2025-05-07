@@ -1,7 +1,7 @@
 class Nave {
   constructor() {
     this.node = document.createElement("img");
-    this.node.src = "../images/nave-user.png";
+    this.node.src = "./images/nave-user.png";
     gameBoxNode.append(this.node);
 
     this.x = 220;

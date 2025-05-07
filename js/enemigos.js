@@ -2,13 +2,13 @@ class Enemigo{
     constructor(type, positionX){
         this.node = document.createElement("img")
         if(type === 0){
-            this.node.src = "../images/asteroid.png"
+            this.node.src = "./images/asteroid.png"
         } else if(type === 1){
-            this.node.src = "../images/space-invader.png"
+            this.node.src = "./images/space-invader.png"
         } else if(type === 2){
-            this.node.src = "../images/galaga.png"
+            this.node.src = "./images/galaga.png"
         }else if(type === 3){
-            this.node.src = "../images/metroide.png"
+            this.node.src = "./images/metroide.png"
         }
         
         gameBoxNode.append(this.node)
