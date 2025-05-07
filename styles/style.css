@@ -81,7 +81,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    margin: 10px;
 } 
 
 .restartBtn {
@@ -104,4 +104,12 @@ body{
         margin: 10px;
         font-size: 40px;
     }
+}
+
+#winnerBox ,#loserBox{
+    background-color: rgb(186, 184, 184);
+    border-radius: 25px;
+    display: none;
+    flex-direction: column;
+    margin:  10px;
 }

@@ -11,13 +11,16 @@ const livesNode = document.querySelector("#lives h1")
 const gameBoxNode = document.querySelector("#game-box");
 const minutesNode = document.querySelector("#minutes")
 const secondsNode = document.querySelector("#seconds")
+const winnerBox = document.querySelector("#winnerBox")
+const loserBox = document.querySelector("#loserBox")
+
 
 //Variables globales
 let naveObj = null
 let enemyArr = []
 
 let enemyAppearInterval = null
-
+let winCondition = false
 
 //EventListener
 startBtnNode.addEventListener("click", ()=>{
@@ -47,7 +50,7 @@ function startGame(){
 
     enemyAppearInterval = setInterval(()=>{
         enemyAppear()
-    }, 1000)
+    }, 700)
 
     timerInterval = setInterval(()=>{
         secondsNode.innerHTML ++
@@ -55,10 +58,15 @@ function startGame(){
             secondsNode.innerHTML = secondsNode.innerHTML.padStart(2, "0")
             
         }
+
         if(secondsNode.innerHTML >= 60){
             minutesNode.innerHTML ++
             minutesNode.innerHTML = minutesNode.innerHTML.padStart(2, "0")
             secondsNode.innerHTML = "00"
+        }
+
+        if(minutesNode.innerHTML >= 2){
+            winCondition = true
         }
     }, 1000)
 }
@@ -102,19 +110,28 @@ function checkCollisionNaveEnemigo(){
 }
 
 function gameOver(){
+    if(winCondition === true){ 
+        winnerBox.style.display="flex"
+        console.log("camion1")
+    }else if(winCondition !== true){
+        loserBox.style.display="flex"
+        console.log("camion2")
+    }else{
+        console.log("camion3")
+    }
+
     clearInterval(gameIntervalId)
     clearInterval(enemyAppearInterval)
+    clearInterval(timerInterval)
 
     gameScreenNode.style.display = "none"
     gameOverScreenNode.style.display ="flex"
+
+    
 }
 
 function livesCounter(){
     if (livesNode.innerHTML <= 0){
         gameOver()
     }
-}
-
-function timer(){
-
 }
