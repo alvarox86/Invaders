@@ -31,7 +31,7 @@ bgSound.loop = true
 
 const liveUpSound = document.createElement("audio")
 liveUpSound.src = "./audio/live-up-sound.mp3"
-liveUpSound.volume = 0.7
+liveUpSound.volume = 0.05
 
 const liveDownSound = document.createElement("audio")
 liveDownSound.src = "./audio/live-down-sound.mp3"
