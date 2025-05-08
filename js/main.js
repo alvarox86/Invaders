@@ -22,6 +22,20 @@ let vidaObj = null;
 let enemyAppearInterval = null;
 let winCondition = false;
 
+//Sonidos
+
+const bgSound = document.createElement("audio")
+bgSound.src = "./audio/bg-sound.mp3"
+bgSound.volume = 0.05
+bgSound.loop = true
+
+const liveUpSound = document.createElement("audio")
+liveUpSound.src = "./audio/live-up-sound.mp3"
+liveUpSound.volume = 0.7
+
+const liveDownSound = document.createElement("audio")
+liveDownSound.src = "./audio/live-down-sound.mp3"
+liveDownSound.volume = 0.2
 //EventListener
 startBtnNode.addEventListener("click", () => {
   startGame();
@@ -41,6 +55,7 @@ restartBtn.addEventListener("click", () => {
 function startGame() {
   splashScreenNode.style.display = "none";
   gameScreenNode.style.display = "flex";
+  bgSound.play()
 
   naveObj = new Nave();
 
@@ -110,6 +125,7 @@ function checkCollisionNaveEnemigo() {
       livesNode.innerHTML--;
       eachEnemyObj.node.remove();
       enemyArr.splice(index, 1);
+      liveDownSound.play()
     }
   });
 }
@@ -128,8 +144,8 @@ function checkCollisionNaveVida() {
     naveObj.y + naveObj.h > vidaObj.y
   ) {
     livesNode.innerHTML++;
+    liveUpSound.play()
     vidaObj.node.remove();
-    console.log(vidaObj)
     vidaObj = null
   }
 }
