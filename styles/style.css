@@ -10,7 +10,6 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 30px;
     background-color: rgb(222, 222, 222);
     background-image: url(../images/bg.jpg);
     background-size: cover;
@@ -49,12 +48,18 @@ body{
     border-radius: 20px;
 }
 
+.imgObjetives{
+    width: 50px;
+    height: 50px;
+    margin-top:20px ;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    margin: 30px;
   }
 
 #game-box {
@@ -74,6 +79,7 @@ body{
 
 #game-screen{
     display: none;
+    margin: 50px;
 }
 
 #game-over-screen{
