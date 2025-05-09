@@ -44,6 +44,6 @@ Un juego arcade en el que deberás resistir el mayor tiempo posible mientras esq
 
 ## [Sketch](https://excalidraw.com/)
 
-## [Slides]()
+## [Slides](https://www.canva.com/design/DAGm8uUDgDM/hNvjymZcKc-mJnp_RDqqBA/edit?utm_content=DAGm8uUDgDM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ## [Deploy](https://alvarox86.github.io/Invaders/)
